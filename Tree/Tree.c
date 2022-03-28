@@ -23,7 +23,30 @@ int ChopDown (Tree* tree)
     return NO_ERR;
 }
 
-Tree* SetLBranch (Tree* tree, data_t push)
+int SetLBranch (Tree* leaf, data_t push)
 {
-    
+    if (leaf == NULL)
+    {
+        return ERR;
+    }
+    if (leaf->left != NULL)
+    {
+        return ERR;
+    }
+    leaf->left = (Tree*) calloc (1, sizeof (Tree));
+    return NO_ERR;
+}
+
+int SetRBranch (Tree* leaf, data_t push)
+{
+    if (leaf == NULL)
+    {
+        return ERR;
+    }
+    if (leaf->right != NULL)
+    {
+        return ERR;
+    }
+    leaf->right = (Tree*) calloc (1, sizeof (Tree));
+    return NO_ERR;
 }

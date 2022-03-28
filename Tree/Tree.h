@@ -20,8 +20,8 @@ Tree* PlantTree (data_t push);
 
 int   ChopDown (Tree* tree);
 
-Tree* SetLBranch  (Tree* tree, data_t push);
+int   SetLBranch  (Tree* tree, data_t push);
 
-Tree* SetRBranch (Tree* tree, data_t push);
+int   SetRBranch (Tree* tree, data_t push);
 
 #endif
