@@ -95,3 +95,45 @@ int TreeDbgDump (Node* tree)
     gdcounter++;
     return NO_ERR;
 }
+
+int ScanTree (const char* filename, Node* tree)
+{
+    if (tree == NULL)
+    {
+        return ERR;
+    }
+    if (filename == NULL)
+    {
+        return ERR;
+    }
+    long bufsz = 0;
+    char* buffer = Read (filename, &bufsz);
+    Node* node = tree;
+    for (size_t i = 0; i < (size_t)bufsz; )
+    {
+
+    }
+}
+
+char* Read (const char* filename, long* ptrbufsz)
+{
+    FILE* text = fopen (filename, "r");
+    fseek (text, 0, SEEK_SET);
+    long start = ftell (text);
+    fseek (text, 0, SEEK_END);
+    long end = ftell (text);
+    fseek (text, 0, SEEK_SET);
+    *ptrbufsz = end - start;
+
+    char* buffer = (char*) calloc (*ptrbufsz + 1, sizeof (char));
+    fread (buffer, sizeof (char), *ptrbufsz, text);
+    fclose (text);
+    return buffer;
+}
+
+size_t SkipSpaces (const char* text)
+{
+    size_t i = 0;
+    for (i = 0; text[i] == ' ' || text[i] == '\t'; i++) {;}
+    return i;
+}

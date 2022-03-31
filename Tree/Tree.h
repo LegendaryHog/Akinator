@@ -19,16 +19,22 @@ typedef struct Node {
     struct Node* right;
 } Node;
 
-Node* PlantTree   (data_t push);
+Node*  PlantTree   (data_t push);
 
-int   ChopDown    (Node* tree);
+int    ChopDown    (Node* tree);
 
-int   SetLBranch  (Node* tree, data_t push);
+int    SetLBranch  (Node* tree, data_t push);
 
-int   SetRBranch  (Node* tree, data_t push);
+int    SetRBranch  (Node* tree, data_t push);
 
-int   TreeDbgDump (Node* tree);
+int    TreeDbgDump (Node* tree);
 
-int   TreeDump    (Node* tree);
+int    TreeDump    (Node* tree);
+
+int    ScanTree    (FILE* file, Node* tree);
+
+char*  Read        (const char* filename, long* ptrbufsz);
+
+size_t SkipSpaces  (const char* text);
 
 #endif
