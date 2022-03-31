@@ -3,25 +3,32 @@
 
 #include <stdio.h>
 #include <stdlib.h>
-#include <../common.h>
+#include <assert.h>
+#include "../common.h"
+
+#define LEN0 90
 
 enum ERRORS {
     ERR,
     NO_ERR,
 };
 
-typedef struct Tree {
+typedef struct Node {
     data_t       data;
-    struct Tree* left;
-    struct Tree* right;
-} Tree;
+    struct Node* left;
+    struct Node* right;
+} Node;
 
-Tree* PlantTree (data_t push);
+Node* PlantTree   (data_t push);
 
-int   ChopDown (Tree* tree);
+int   ChopDown    (Node* tree);
 
-int   SetLBranch  (Tree* tree, data_t push);
+int   SetLBranch  (Node* tree, data_t push);
 
-int   SetRBranch (Tree* tree, data_t push);
+int   SetRBranch  (Node* tree, data_t push);
+
+int   TreeDbgDump (Node* tree);
+
+int   TreeDump    (Node* tree);
 
 #endif
