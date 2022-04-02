@@ -1,3 +1,4 @@
 *.o
 *.out
 Tree/test.txt
+Tree/test.c

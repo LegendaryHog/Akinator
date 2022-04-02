@@ -1,0 +1,17 @@
+
+{Animal?					
+	{Live in swamp?										
+		{SO fucking much nulevki?
+			{Zhabov}
+			{Ovchinkin}
+		}
+		{Poltorashka}
+	}
+	{Like My Little pony?
+		{Vladimirov}
+		{True Zhopa Contest System?
+			{Podlesnykh}
+			{Ded}
+		}
+	}
+}

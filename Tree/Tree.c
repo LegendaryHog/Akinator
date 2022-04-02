@@ -23,6 +23,7 @@ int ChopDown (Node* tree)
     {
         ChopDown (tree->right);
     }
+    free (tree->data);
     free (tree);
     return NO_ERR;
 }
@@ -59,7 +60,7 @@ int SetRBranch (Node* leaf, data_t push)
 
 void PrintTree (const Node* const node, FILE* f)
 {
-    fprintf (f, "\tNODE_%p[label = \"{ <_node_> node:\\n%p | data: %d | { <left> left:\\n%p | <right> right:\\n%p} }\"];\n", node, node, node->data, node->left, node->right);
+    fprintf (f, "\tNODE_%p[label = \"{ <_node_> node:\\n%p | data:\\n %s | { <left> left:\\n%p | <right> right:\\n%p} }\"];\n", node, node, node->data, node->left, node->right);
     if (node->left)
     {
         PrintTree (node->left, f);
@@ -111,10 +112,12 @@ int ScanAllTree (const char* filename, Node* tree)
     
     if (RecScanTree (buffer, tree) == 0)
     {
+        free (buffer);
         return ERR;
     }
     else
     {
+        free (buffer);
         return NO_ERR;
     }
 }
@@ -191,6 +194,7 @@ size_t RecScanTree (const char* text, Node* node)
 char* Read (const char* filename, long* ptrbufsz)
 {
     FILE* text = fopen (filename, "r");
+    assert (text != NULL);
     fseek (text, 0, SEEK_SET);
     long start = ftell (text);
     fseek (text, 0, SEEK_END);
@@ -220,11 +224,13 @@ size_t SkipEnters (const char* text)
 
 size_t ScanArg (const char* text, Node* node)
 {
-    char* arg = (char*) calloc (10, sizeof (char));
-    sscanf (text, "%[0-9]", arg);
-    size_t len = strlen(arg);
-    sscanf (arg, "%d", &node->data);
-    free (arg);
+    size_t len = 0;
+    for (len = 0; isalpha (text[len]) || text[len] == ' ' || text[len] == '\t'|| isdigit (text[len]) || text[len] == '?'; len++) {;}
+    node->data = (char*) calloc (len + 1, sizeof (char));
+    for (size_t i = 0; i < len; i++)
+    {
+        node->data[i] = text[i];
+    }
     return len;
 }
 

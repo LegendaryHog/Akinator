@@ -1,6 +1,6 @@
 #ifndef COMMONH
 #define COMMONH
 
-typedef int data_t;
+typedef char* data_t;
 
 #endif
