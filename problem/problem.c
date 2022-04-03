@@ -61,7 +61,7 @@ int Play (Node* const tree)
             ClearBuffer ();
             if (input == 'y')
             {
-                printf ("Yare-yare daze, AM I RIGHT? YES, I AM!");
+                printf ("Yare-yare daze, AM I RIGHT? YES, I AM!\n");
                 return NO_ERR;
             }
             else if (input == 'n')

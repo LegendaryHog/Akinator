@@ -1,9 +1,11 @@
 #include "problem.h"
+#include "../AkiTree/AkiTree.h"
 
 int main (void)
 {
     Node* tree = PlantTree (NULL);
-    if (ScanAllTree ("AkiTree.txt", tree) == ERR)
+    Pull ();
+    if (ScanAllTree ("AkiTree/AkiTree.txt", tree) == ERR)
     {
         fprintf (stderr, "Scan ERROR\n");
     }
@@ -22,12 +24,13 @@ int main (void)
         }
         if (input == 'n')
         {
-            printf ("Ok, bue!\n");
+            printf ("With best regards!\n");
             break;
         }
     }
     AkiGraphDump (tree);
-    AkiTextDump  ("AkiTree.txt", tree);
+    AkiTextDump  ("AkiTree/AkiTree.txt", tree);
+    Push ();
     ChopDown (tree);
     return 0;
 }
