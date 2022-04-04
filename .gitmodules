@@ -1,2 +1,3 @@
 [submodule "AkiTree"]
+    path = AkiTree
 	url = https://github.com/LegendaryHog/AkiTree.git
