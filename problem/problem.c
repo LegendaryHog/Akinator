@@ -116,7 +116,7 @@ void RecPrintTree (FILE* f, Node* node, size_t n)
     {
         fputc ('\t', f);
     }
-    fprintf (f, "{%s", node->data);
+    fprintf (f, "{ %s ", node->data);
     if (node->left == NULL && node->right != NULL)
     {
         fputc ('\n', f);
