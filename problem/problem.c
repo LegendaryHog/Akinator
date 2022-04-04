@@ -34,6 +34,7 @@ int AkiGraphDump (const Node* const tree)
     fclose (graph);
     char* cmd_mes = (char*) calloc (LEN0, sizeof (char));
     sprintf (cmd_mes, "dot -Tpng logs/aki_dump.dot -o logs/Aki_Dump%zd.png", gdcount);
+    sprintf (cmd_mes, "dot -Tpng logs/aki_dump.dot -o AkiTree/Aki_Dump%zd.png", gdcount);
     system (cmd_mes);
     free (cmd_mes);
     system ("rm logs/aki_dump.dot");
