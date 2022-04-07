@@ -2,3 +2,4 @@
 *.out
 Tree/test.txt
 Tree/test.c
+problem/main.c
