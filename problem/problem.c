@@ -88,6 +88,7 @@ int Play (Node* const tree)
                 return NO_ERR;
             }
         }
+        //system ("espeak-ng --stdout\n");
         printf ("%s\n[y/n]:", node->data);
         char input = getchar ();
         ClearBuffer ();
@@ -101,6 +102,7 @@ int Play (Node* const tree)
         }
         else
         {
+            system ("espeak-ng --stdout\n");
             printf ("Incorerrect input\nTry again\n");
         }
     }
