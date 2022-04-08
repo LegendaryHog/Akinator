@@ -1,23 +1,9 @@
 #include "problem.h"
-#include "../AkiTree/AkiTree.h"
-
-/*void Pull (void)
-{
-    system ("git -C AkiTree/ pull origin master\n");
-}
-
-void Push (void)
-{
-    system ("git -C AkiTree/ add AkiTree.txt");
-    system ("git -C AkiTree/ commit -m \"Fun\"\n");
-    system ("git -C AkiTree/ push origin master\n");
-}*/
 
 int main (void)
 {
     Node* tree = PlantTree (NULL);
-    Pull ();
-    if (ScanAllTree ("AkiTree/AkiTree.txt", tree) == ERR)
+    if (ScanAllTree ("AkiTree.txt", tree) == ERR)
     {
         fprintf (stderr, "Scan ERROR\n");
     }
@@ -41,8 +27,7 @@ int main (void)
         }
     }
     AkiGraphDump (tree);
-    AkiTextDump  ("AkiTree/AkiTree.txt", tree);
-    Push ();
+    AkiTextDump  ("AkiTree.txt", tree);
     ChopDown (tree);
     return 0;
 }

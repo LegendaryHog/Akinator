@@ -226,7 +226,7 @@ size_t ScanArg (const char* text, Node* node)
 {
     size_t len = 0;
     for (len = 0; isalpha (text[len]) || text[len] == ' ' || text[len] == '\t'|| isdigit (text[len]) || text[len] == '?'; len++) {;}
-    node->data = (char*) calloc (len + 1, sizeof (char));
+    node->data = (char*) calloc (len, sizeof (char));
     for (size_t i = 0; i < len; i++)
     {
         node->data[i] = text[i];

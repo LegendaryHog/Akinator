@@ -34,7 +34,6 @@ int AkiGraphDump (const Node* const tree)
     fclose (graph);
     char* cmd_mes = (char*) calloc (LEN0, sizeof (char));
     sprintf (cmd_mes, "dot -Tpng logs/aki_dump.dot -o logs/Aki_Dump%zd.png", gdcount);
-    sprintf (cmd_mes, "dot -Tpng logs/aki_dump.dot -o AkiTree/Aki_Dump%zd.png", gdcount);
     system (cmd_mes);
     free (cmd_mes);
     system ("rm logs/aki_dump.dot");
@@ -58,6 +57,10 @@ int Play (Node* const tree)
         if (node->left == NULL)
         {
             printf ("It is %s?\n[y/n]:", node->data);
+            /*for (size_t i = 0; i < strlen (node->data); i++)
+            {
+                printf ("%c (%d)\n", node->data[i], node->data[i]);
+            }*/
             char input = getchar ();
             ClearBuffer ();
             if (input == 'y')
@@ -77,7 +80,7 @@ int Play (Node* const tree)
                 size_t qmem = 0;
                 getline (&ques, &qmem, stdin);
                 size_t len = strlen (ques);
-                ques[len - 1] == '\0';
+                ques[len - 1] = '\0';
                 ques = (char*) realloc (ques, len + 1);
                 ques[len - 1] = '?';
                 ques[len] = '\0';
@@ -88,7 +91,6 @@ int Play (Node* const tree)
                 return NO_ERR;
             }
         }
-        //system ("espeak-ng --stdout\n");
         printf ("%s\n[y/n]:", node->data);
         char input = getchar ();
         ClearBuffer ();
@@ -119,7 +121,7 @@ void RecPrintTree (FILE* f, Node* node, size_t n)
     {
         fputc ('\t', f);
     }
-    fprintf (f, "{ %s ", node->data);
+    fprintf (f, "{%s", node->data);
     if (node->left == NULL && node->right != NULL)
     {
         fputc ('\n', f);
