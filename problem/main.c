@@ -16,7 +16,7 @@ int main (void)
 {
     Pull ();
     Node* tree = PlantTree (NULL);
-    if (ScanAllTree ("AkiTree.txt", tree) == ERR)
+    if (ScanAllTree ("AkiTree/AkiTree.txt", tree) == ERR)
     {
         fprintf (stderr, "Scan ERROR\n");
     }
@@ -40,7 +40,7 @@ int main (void)
         }
     }
     AkiGraphDump (tree);
-    AkiTextDump  ("AkiTree.txt", tree);
+    AkiTextDump  ("AkiTree/AkiTree.txt", tree);
     ChopDown (tree);
     Push ();
     return 0;
